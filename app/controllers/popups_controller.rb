@@ -8,6 +8,12 @@ def index
   end
 end
 
+def new
+  @popup = Popup.new
+  @popups = Popup.all
+end
+
+
 def create
   @popup = Popup.new popup_params
   if @popup.save
@@ -18,6 +24,10 @@ def create
   else
     f.json { render json: @popup.errors, status: :unprocessable_entity }
   end
+end
+
+def show
+  @popup = Popup.find_by_id(params[:id])
 end
 
 private 

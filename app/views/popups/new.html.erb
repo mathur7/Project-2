@@ -1,0 +1,42 @@
+<%= form_for(@popup) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <br>  
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <br>
+
+  <%= f.label :hours %>
+  <%= f.text_field :hours %>
+  <br>
+
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <br>
+
+  <%= f.label :expires_at %>
+  <%= f.text_field :expires_at %>
+  <br>
+  
+  <%= f.submit :id => "submit" %>
+<% end %>
+
+
+
+<h1>Popups</h1>
+<ul>
+  <% @popups.each do |popup| %>
+    <li><b><%=popup.name%></b></li>
+  <%end %>
+</ul>
+
