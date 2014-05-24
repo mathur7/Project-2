@@ -2,6 +2,20 @@
 
 <ul>
   <% @popups.each do |popup| %>
-    <li><b><%=popup.name%></b></li>
+    <li><b><%=popup.name%></b>
+    <br>
+    <b><%=popup.address%></b>
+    <br>
+    <b><%=popup.description%></b>
+    <br>
+    <b><%=popup.price%></b>
+    <br>
+    <b><%=popup.hours%></b>
+    <br>
+    <b><%=popup.image%></b>
+    <br>
+    <b><%=popup.expires_at%></b>
+    </li>
+    <br></br>
   <%end %>
 </ul>
