@@ -860,3 +860,21 @@ Started GET "/assets/popups.js?body=1" for 127.0.0.1 at 2014-05-23 15:55:28 -070
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-05-23 15:55:28 -0700
   [1m[36mPopup Load (1.0ms)[0m  [1mSELECT  "popups".* FROM "popups"   ORDER BY "popups"."id" DESC LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-05-24 11:46:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PopupsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 28ms
+
+SyntaxError (/Users/mathur7/Projects/Project_2/app/models/popup.rb:4: syntax error, unexpected tSYMBEG, expecting keyword_do or '{' or '('
+  has_many :comments, through :users
+                               ^):
+  app/controllers/popups_controller.rb:4:in `index'
+
+
+  Rendered /Users/mathur7/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/mathur7/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/mathur7/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/mathur7/.rvm/gems/ruby-2.1.1/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.6ms)
