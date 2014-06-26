@@ -27,6 +27,7 @@
     <p><%= link_to "Website", @popup.website %></p>
   </div><!-- popup-info -->
 
+  <div class="float_right">
   <% if current_user %>
     <%= form_for ([@popup, @feed_new]) do |f| %>
       <br><%= f.text_area :comment, placeholder: "Add your comment" %><br>
@@ -48,6 +49,7 @@
     </div><!-- jumbo -->
 
   </div><!-- jumbotron -->
+</div>
 
 <%= link_to 'Back', root_path %></br>
 </div><!-- container -->

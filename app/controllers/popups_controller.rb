@@ -23,6 +23,7 @@ before_action :authenticate_user!, except: [:index, :show]
   
   def new
     @popup = Popup.new
+    @taco = Popup.where(:category => "Food")
   end
 
   def create
