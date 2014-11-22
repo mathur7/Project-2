@@ -9,7 +9,8 @@
         <div class="map-zoom"> 
           <button id="zoomOut"> - </button><button id="zoomIn"> + </button>  
           <button id="get-direct">
-            <%= link_to "Get Directions", "https://maps.google.com/maps?daddr=#{@popup.address}", :method => "get" %>
+            <%= link_to("Get Directions", "https://maps.google.com?saddr=Current+Location&daddr=#{@popup.address}" , :target => "_blank") %>
+        
           </button><!-- get-direct -->            
         </div><!-- map-zoom -->
     </div><!-- image-row -->  
@@ -25,7 +26,7 @@
           <p>Open: <%= @popup.day %></p>
           <p>Price: <%= @popup.price %></p>
           <p>Category: <%= @popup.category %></p>
-          <p><%= link_to "Website", @popup.website %></p>
+          <p><%= link_to "Website", @popup.website, :target => "_blank" %></p>
         </div><!-- col-sm-5 col-md-6 col-lg-6 -->
       </div> <!-- row -->
     </div><!-- popup-info --></br>  

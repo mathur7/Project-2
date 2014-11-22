@@ -1,10 +1,9 @@
-<!-- <div class="container" id="devise-flash"> -->
-<!-- devise required flash message -->
-<!-- <div class="devise-flash"> -->
-  <%# if notice %>
-    <!-- <p class="alert alert-success"><%#= notice %></p> -->
-  <%# end %>
-  <%# if alert %>
-    <!-- <p class="alert alert-danger"><%#= alert %></p> -->
-  <%# end %>
-<!-- </div>   -->
+<div class="container" id="devise-flash">
+<div class="devise-flash">
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+</div>  

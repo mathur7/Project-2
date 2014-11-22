@@ -6,21 +6,22 @@
           <div class="glass"></br>
             <h2 class="center">Submit Popup!</h2>
             <% if current_user %> 
-              <%= form_for @popup do |f| %>
+              <%= form_for @popup do |f| %>                
+
                 <div class="box">
-                  <div class="form-group">
-                    <%= f.label "Name" %>
-                    <%= f.text_field "name", placeholder: "name", :class => "form-control" %>
+                  <div class="form-group" >
+                    <%= f.label "Name" %>                    
+                    <%= f.text_field "name", placeholder: "popup name", :class => "form-control" %>
                   </div>
               
                     <div class="form-group">
                       <%= f.label "Address: " %>
                       <%= f.text_field "address", placeholder: "eg: 122 Market St", :class => "form-control" %>
                     </div>
-              
+
                     <div class="form-group">
                       <%= f.label "Description" %>
-                      <%= f.text_area "description", :class => "form-control" %>
+                      <%= f.text_area "description", :class => "form-control", :placeholder => "Thai Tapas (35 character limit)", :maxlength => "35", :minlength => "0" %>
                     </div>
               
                     <div class="form-group">
@@ -53,13 +54,13 @@
                     <div><%= f.file_field :image %></div></br>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" id="create-popup">
                     <%= f.submit %>
                   </div>      
                 </div><!-- box -->
               </div><!-- glass -->
-            <% end %>
-          <% end %>
+            <% end %> <!-- form_for -->
+          <% end %> <!-- if statement -->
         </div></br><!-- /.container -->
       </div><!-- /#main-inner -->
     </div><!-- /#main -->

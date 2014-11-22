@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140624180955) do
     t.string   "address"
     t.string   "hours"
     t.string   "price"
-    t.string   "description"
+    t.string   "description", :limit => 35
     t.text     "image"
     t.string   "day"
     t.integer  "user_id"

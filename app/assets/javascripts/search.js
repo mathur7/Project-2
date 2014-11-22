@@ -22,7 +22,7 @@ $(document).ready(function() {
       }
       }).success(function(data) {
         for (var i in data) {
-          addPin(data[i].latitude, data[i].longitude, data[i].name, data[i].id, data[i].address, data[i].category, data[i].image, data[i].price);
+          addPin(data[i].latitude, data[i].longitude, data[i].name, data[i].id, data[i].address, data[i].category, data[i].image, data[i].price, data[i].geocode);
         }
       });
     }
@@ -31,6 +31,27 @@ $(document).ready(function() {
 
     $('#search_form').on('submit', function(event) {
     });
+
+    //   var loadSearchGeo = function() {
+    //   // Find search string and geocode and add to url
+    //   var url = "/popups/search_geo.json";
+    //   $.ajax(url, {
+    //     type: 'get',
+    //     data: {
+    //     "q": $('#q').val(),
+    //     "geocode": $('#geocode').val()
+    //   }
+    //   }).success(function(data) {
+    //     for (var i in data) {
+    //       addPin(data[i].latitude, data[i].longitude, data[i].name, data[i].id, data[i].address, data[i].category, data[i].image, data[i].price, data[i].geocode);
+    //     }
+    //   });
+    // }
+
+    // loadSearchGeo();
+
+    // $('#search_form').on('submit', function(event) {
+    // });
 
 
     function addPin(latitude, longitude, name, id, address, category, image, price) {

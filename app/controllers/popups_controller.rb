@@ -1,6 +1,6 @@
 class PopupsController < ApplicationController
 
-before_action :authenticate_user!, except: [:index, :show, :search]
+before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @popups = Popup.all
@@ -20,10 +20,11 @@ before_action :authenticate_user!, except: [:index, :show, :search]
     end
   end
 
-  def search_geocode
+  def search_geo
+    # test code but it works to get first Popup's geocode    
     @geocode_results = Popup.near(params[:geocode],1)
     respond_to do |f|
-      f.html { render :search_geocode }
+      f.html { render :search_geo }
       f.json { render json: @geocode_results, :only => [:id, :name, :address, :geocode, :longitude, :latitude, :hours, :day, :website, :price, :description, :image, :category]}
     end
   end
@@ -33,8 +34,13 @@ before_action :authenticate_user!, except: [:index, :show, :search]
   end
 
   def create
-    @popup = Popup.create popup_params 
-    redirect_to popup_path(@popup)
+    @popup = Popup.create popup_params     
+    if @popup.save
+      redirect_to popup_path(@popup)
+    else      
+      flash.now[:errors] = 'oop'
+      render :new
+    end
   end
 
   def show    

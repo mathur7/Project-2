@@ -22,14 +22,14 @@ class Popup < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates_length_of :name, :maximum => 15
   # not using validations for the rest of the form fields until we make the necessary changes to the form
-  # validates :name, presence: true
-  # validates :address, presence: true
-  # validates :day, presence: true
-  # validates :hours, presence: true
-  # validates :website, presence: true
-  # validates :price, presence: true
-  # validates :description, presence: true
-  # validates :category, presence: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :day, presence: true
+  validates :hours, presence: true
+  validates :website, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
   
 
   #search query for finding popups by name - ILIKE makes it case insensitive

@@ -1,12 +1,40 @@
+@media screen and (min-width: 767px) and (max-width: 4000px) {
+  
+}
+
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .navbar-form.navbar-fluid {
-    display: none;
+    position: relative;
+  }
+
+  input#q.form-control {
+    margin: -40px 0em 3px -150px;
+    font-size: 8px;
+    width: 20em;
+    position: absolute;
   }
 
   input#location.form-control {
+    margin: 0em 42px 0em -150px;
     width: 20em;
     font-size: 8px;
+    padding: 0em 0em 0em 10px;
+    position: absolute;
+  }
+
+  input#home-search.btn.btn-info {
+    margin: 40px 18px 0px -306px;
+  }
+
+  div.navbar-form {
+    margin: 6em 8px 0em -250%;
+    position: absolute;
+  }
+
+  div.navbar-form.pull-right ul.links{
+    margin: -115px 0px 0px 250px;
+    z-index: 1;
   }
 
 }

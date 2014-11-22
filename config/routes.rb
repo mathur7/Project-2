@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :popups do 
     get 'search', on: :collection
-    get 'search_geocode', on: :collection # route for "address/geocode" search results
+    get 'search_geo', on: :collection # route for "address/geocode" search results
   end 
 
   devise_for :users
