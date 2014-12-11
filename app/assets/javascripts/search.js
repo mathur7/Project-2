@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  var url;
     function initialize() {
     //just a variable storing a location
     var mapLoad = {
@@ -10,6 +9,8 @@ $(document).ready(function() {
       styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill"},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#7dcdcd"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]}]
     }
 
+    /*TOFIX mobile: on width < 480, draggable: false */
+
     var map = new google.maps.Map(document.getElementById("map-search"), mapLoad);
 
     var loadSearch = function() {
@@ -18,23 +19,20 @@ $(document).ready(function() {
       $.ajax(url, {
         type: 'get',
         data: {
-        "q": $('#q').val(),
+        "q": $('#q').val()
       }
       }).success(function(data) {
+        console.log(data);
         for (var i in data) {
            addPin(data[i].latitude, data[i].longitude, data[i].name, data[i].id, data[i].address, data[i].category, data[i].image, data[i].price, data[i].geocode);
         }
       });
     }
-    loadSearch();
-
-
-    // $('#search_form').on('submit', loadSearch());
 
     var loadSearchGeo = function() {
-      // Find search string and geocode and add to url
-      var url = "/popups/search.json";
-      $.ajax(url, {
+      // Find search string and geocode and add to url  
+      geo_url = "/popups/search.json";
+      $.ajax(geo_url, {
         type: 'get',
         data: {
         "geocode": $('#location').val()
@@ -46,31 +44,7 @@ $(document).ready(function() {
         }
       });
     }
-    loadSearchGeo();
-    
-
-
-    //   var loadSearchBoth = function() {
-    //   // Find search string and geocode and add to url
-    //   var url = "/popups/search_geo.json";
-    //   $.ajax(url, {
-    //     type: 'get',
-    //     data: {
-    //     "q": $('#q').val(),
-    //     "geocode": $('#geocode').val()
-    //   }
-    //   }).success(function(data) {
-    //     for (var i in data) {
-    //       addPin(data[i].latitude, data[i].longitude, data[i].name, data[i].id, data[i].address, data[i].category, data[i].image, data[i].price, data[i].geocode);
-    //     }
-    //   });
-    // }
-
-    // loadSearchGeo();
-
-    // $('#search_form').on('submit', function(event) {
-    // });
-
+    $('#home-geo-search').on('click', loadSearchGeo());
 
     function addPin(latitude, longitude, name, id, address, category, image, price) {
       var loc = new google.maps.LatLng(latitude, longitude);

@@ -43,10 +43,10 @@ $(document).ready(function() {
       });
     };
     loadGeo();
+
   
     function addPin(latitude, longitude, name, id, address, category, image, price) {
-      var loc = new google.maps.LatLng(latitude, longitude);
-      console.log(loc);
+      var loc = new google.maps.LatLng(latitude, longitude);      
       var newMarker = new google.maps.Marker({
         position: loc,
         map: map,
@@ -54,27 +54,6 @@ $(document).ready(function() {
         animation: google.maps.Animation.DROP,
         title: name
       });
-
-    //   infobox = new InfoBox({
-    //      content: document.getElementById("infobox"),
-    //      disableAutoPan: false,
-    //      maxWidth: 150,
-    //      pixelOffset: new google.maps.Size(-140, 0),
-    //      zIndex: null,
-    //      boxStyle: {
-    //         background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-    //         opacity: 0.75,
-    //         width: "280px"
-    //     },
-    //     closeBoxMargin: "12px 4px 2px 2px",
-    //     closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-    //     infoBoxClearance: new google.maps.Size(1, 1)
-    // });
-    
-    // google.maps.event.addListener(marker, 'click', function() {
-    //     infobox.open(map, this);
-    //     map.panTo(loc);
-    // });
 
       // --> adding autocomplete functionality 
     var input = document.getElementById('location');

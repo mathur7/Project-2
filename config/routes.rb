@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/faq', to: 'pages#faq'
 
   resources :popups do 
-    get 'search', on: :collection
+    get 'search', on: :collection    
     get 'search_name', on: :collection # route for "address/geocode" search results
   end 
 

@@ -6,7 +6,6 @@ class Popup < ActiveRecord::Base
   # letsrate gem requirement
   letsrate_rateable "price"
   
-
   # for geocoder gem to convert address into "geocode"(longitude and latitude)
   geocoded_by :address
   after_validation :geocode
@@ -37,12 +36,13 @@ class Popup < ActiveRecord::Base
     where('name ILIKE :query', query: "%#{query}%")
   end
 
-#   def self.search_geo()
-#   if params[:address].present?
-#     @geocode_results = Popup.near(params[:geocode], 1, :order => :distance)
-#   else
-#     @geocode_results = Popup.all
-#   end
-# end
+  def self.search_geo(query)
+    where('address ILIKE :query', query: "#{query}")
+    # if params[:address]
+    #   @geocode_results = Popup.near(params[:geocode], 1, :order => :distance)
+    # else
+    #   @geocode_results = Popup.all
+    # end
+  end
 
 end
